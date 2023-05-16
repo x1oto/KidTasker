@@ -1,16 +1,16 @@
-package com.x1oto.kidtasker
+package com.x1oto.kidtasker.presentation.view
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.x1oto.kidtasker.presentation.adapters.PagerAdapter
+import com.x1oto.kidtasker.R
 
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager2
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

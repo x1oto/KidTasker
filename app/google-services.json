@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "362243514079",
+    "project_id": "kidtasker-15c81",
+    "storage_bucket": "kidtasker-15c81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362243514079:android:aaa11bce654cccf65bd36a",
+        "android_client_info": {
+          "package_name": "com.x1oto.kidtasker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362243514079-d407miv39djepajnaoho8l8r3nekrg4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4CT0sGeCq-z6WPhbyu6xK5YzAbW9p7ME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362243514079-d407miv39djepajnaoho8l8r3nekrg4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
