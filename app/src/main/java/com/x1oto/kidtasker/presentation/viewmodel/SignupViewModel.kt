@@ -31,5 +31,5 @@ class SignupViewModel(private val signupRepository: SignupRepository) : ViewMode
 sealed class SignupStatus {
     object Loading : SignupStatus()
     data class Success(val message: String) : SignupStatus()
-    data class Error(val message: String) : SignupStatus()
+    data class Error(val eMessage: String) : SignupStatus()
 }

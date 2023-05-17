@@ -12,6 +12,7 @@
 
         <activity
             android:name=".presentation.view.AuthActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="@string/title_activity_settings"
             android:exported="true">
             <intent-filter>

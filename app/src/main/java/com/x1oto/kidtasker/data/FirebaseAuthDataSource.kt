@@ -13,7 +13,6 @@ class FirebaseAuthDataSource {
             val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
             result.user
         } catch (e: Exception) {
-            //Log.e("Firebase", "$e")
             null
         }
     }

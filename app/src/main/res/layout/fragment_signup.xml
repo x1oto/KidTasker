@@ -4,16 +4,180 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.SignupFragment">
+    android:background="#EBEBEB"
+    tools:context=".presentation.view.LoginFragment">
 
-    <Button
-        android:id="@+id/btnSignup"
+    <!-- Top Background Image -->
+    <ImageView
+        android:id="@+id/topBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create an account"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/top_bg_desc"
+        android:src="@drawable/top_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Woman Background Image -->
+    <ImageView
+        android:id="@+id/womanBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/woman_desc"
+        android:src="@drawable/women2"
+        app:layout_constraintBottom_toBottomOf="@id/topBackground"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Fragment Name TextView -->
+    <TextView
+        android:id="@+id/fragmentNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/create_account"
+        android:textColor="#FFF"
+        android:textSize="33sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/topBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/topBackground" />
+
+    <!-- Input Fields -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBackground">
+
+        <EditText
+            android:id="@+id/nameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:hint="@string/name"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Other input fields (email, password, confirm password) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/nameTil"
+        app:layout_constraintStart_toStartOf="@id/nameTil"
+        app:layout_constraintTop_toBottomOf="@+id/nameTil">
+
+        <EditText
+            android:id="@+id/emailEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/emailTil"
+        app:layout_constraintStart_toStartOf="@+id/emailTil"
+        app:layout_constraintTop_toBottomOf="@+id/emailTil"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/passwordEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmPasswordTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTil"
+        app:layout_constraintStart_toStartOf="@+id/passwordTil"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTil"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/confirmPasswordEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Sign Up Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signupBt"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/circle_login_button"
+        android:drawableEnd="@drawable/circle"
+        android:paddingStart="64dp"
+        android:text="@string/sign_up"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/passwordTil"
+        app:layout_constraintStart_toStartOf="@id/passwordTil"
+        tools:ignore="RtlSymmetry" />
+
+    <!-- Switch and Labels -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/modeSw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@id/confirmPasswordTil"
+        app:layout_constraintStart_toStartOf="@id/confirmPasswordTil"
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordTil" />
+
+    <TextView
+        android:id="@+id/parentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="@string/parent"
+        app:layout_constraintBottom_toBottomOf="@id/modeSw"
+        app:layout_constraintStart_toEndOf="@id/modeSw"
+        app:layout_constraintTop_toTopOf="@id/modeSw" />
+
+    <TextView
+        android:id="@+id/childTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="@string/children"
+        app:layout_constraintBottom_toBottomOf="@+id/modeSw"
+        app:layout_constraintEnd_toStartOf="@+id/modeSw"
+        app:layout_constraintTop_toTopOf="@+id/modeSw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
