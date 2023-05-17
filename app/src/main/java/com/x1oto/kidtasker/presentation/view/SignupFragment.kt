@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import com.x1oto.kidtasker.data.FirebaseAuthDataSource
+import com.x1oto.kidtasker.data.FirebaseDataSource
 import com.x1oto.kidtasker.data.SignupRepositoryImpl
 import com.x1oto.kidtasker.data.SignupViewModelFactory
 import com.x1oto.kidtasker.databinding.FragmentSignupBinding
@@ -20,8 +19,8 @@ class SignupFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-    private val firebaseAuthDataSource = FirebaseAuthDataSource()
-    private val signupRepository = SignupRepositoryImpl(firebaseAuthDataSource)
+    private val firebaseDataSource = FirebaseDataSource()
+    private val signupRepository = SignupRepositoryImpl(firebaseDataSource)
     private val viewModel: SignupViewModel by viewModels { SignupViewModelFactory(signupRepository) }
 
 

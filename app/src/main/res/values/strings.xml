@@ -28,4 +28,7 @@
     <string name="top_bg_desc">Top background(arch)</string>
     <string name="woman_desc">A woman in the right corner of the upper arch</string>
     <string name="create_account">Create\naccount</string>
+    <string name="login_to_your_account">Login to\nyour account</string>
+    <string name="login">LOGIN</string>
+    <string name="forget_password">Forget password?</string>
 </resources>
