@@ -1,5 +1,6 @@
 package com.x1oto.kidtasker.presentation.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import androidx.fragment.app.Fragment
@@ -10,20 +11,18 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.x1oto.kidtasker.data.FirebaseDataSource
 import com.x1oto.kidtasker.data.AuthRepositoryImpl
-import com.x1oto.kidtasker.data.SignupViewModelFactory
+import com.x1oto.kidtasker.data.ViewModelFactory
 import com.x1oto.kidtasker.databinding.FragmentSignupBinding
-import com.x1oto.kidtasker.presentation.viewmodel.SignupStatus
-import com.x1oto.kidtasker.presentation.viewmodel.SignupViewModel
+import com.x1oto.kidtasker.presentation.status.Status
+import com.x1oto.kidtasker.presentation.viewmodel.SignUpViewModel
 
-class SignupFragment : Fragment() {
+class SignUpFragment : Fragment() {
     private var _binding: FragmentSignupBinding? = null
     private val binding get() = _binding!!
 
-
     private val firebaseDataSource = FirebaseDataSource()
     private val signupRepository = AuthRepositoryImpl(firebaseDataSource)
-    private val viewModel: SignupViewModel by viewModels { SignupViewModelFactory(signupRepository) }
-
+    private val viewModel: SignUpViewModel by viewModels { ViewModelFactory(signupRepository) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,20 +39,23 @@ class SignupFragment : Fragment() {
         binding.signupBt.setOnClickListener {
             validateData()
         }
+
         notifyUser()
     }
 
     private fun notifyUser() {
-        viewModel.signupStatus.observe(viewLifecycleOwner) { status ->
+        viewModel.status.observe(viewLifecycleOwner) { status ->
             when (status) {
-                is SignupStatus.Loading -> {
+                is Status.Loading -> {
                 }
 
-                is SignupStatus.Success -> {
+                is Status.Success -> {
                     Toast.makeText(requireContext(), status.message, Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(requireContext(), HomeActivity::class.java))
+                    requireActivity().finish()
                 }
 
-                is SignupStatus.Error -> {
+                is Status.Error -> {
                     Toast.makeText(requireContext(), status.errorMessage, Toast.LENGTH_SHORT).show()
                 }
             }

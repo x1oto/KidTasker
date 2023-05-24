@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.x1oto.kidtasker.presentation.view.LoginFragment
-import com.x1oto.kidtasker.presentation.view.SignupFragment
+import com.x1oto.kidtasker.presentation.view.SignInFragment
+import com.x1oto.kidtasker.presentation.view.SignUpFragment
 
 class PagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, private val tabCount: Int)
     : FragmentStateAdapter(fragmentManager, lifecycle) {
@@ -16,9 +16,9 @@ class PagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, priva
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> LoginFragment()
-            1 -> SignupFragment()
-            else -> LoginFragment()
+            0 -> SignInFragment()
+            1 -> SignUpFragment()
+            else -> SignInFragment()
         }
     }
 }

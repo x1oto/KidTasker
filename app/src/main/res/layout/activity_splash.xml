@@ -7,4 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.SplashActivity">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+      android:id="@+id/textView2"
+      android:layout_width="176dp"
+      android:layout_height="18dp"
+      android:layout_marginTop="400dp"
+      android:text="android"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
