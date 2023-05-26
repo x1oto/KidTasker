@@ -6,11 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.x1oto.kidtasker.data.model.User
 import com.x1oto.kidtasker.domain.AuthRepository
+import com.x1oto.kidtasker.domain.TaskRepository
 import com.x1oto.kidtasker.presentation.status.Status
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val authRepository: AuthRepository): ViewModel() {
+class HomeViewModel(
+    private val authRepository: TaskRepository
+): ViewModel() {
 
     private val _status = MutableLiveData<Status>()
     val status: LiveData<Status> = _status

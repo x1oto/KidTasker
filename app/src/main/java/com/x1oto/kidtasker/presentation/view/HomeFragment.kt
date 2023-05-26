@@ -11,19 +11,18 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.x1oto.kidtasker.data.AuthRepositoryImpl
 import com.x1oto.kidtasker.data.FirebaseDataSource
-import com.x1oto.kidtasker.data.ViewModelFactory
 import com.x1oto.kidtasker.databinding.FragmentHomeBinding
 import com.x1oto.kidtasker.presentation.status.Status
 import com.x1oto.kidtasker.presentation.viewmodel.HomeViewModel
+import com.x1oto.kidtasker.presentation.viewmodel.SignInViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val firebaseDataSource = FirebaseDataSource()
-    private val homeRepository = AuthRepositoryImpl(firebaseDataSource)
-    private val viewModel: HomeViewModel by viewModels { ViewModelFactory(homeRepository) }
+    private val viewModel by viewModel<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +31,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

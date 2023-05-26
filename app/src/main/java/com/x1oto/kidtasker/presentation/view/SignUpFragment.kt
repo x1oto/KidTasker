@@ -11,18 +11,17 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.x1oto.kidtasker.data.FirebaseDataSource
 import com.x1oto.kidtasker.data.AuthRepositoryImpl
-import com.x1oto.kidtasker.data.ViewModelFactory
 import com.x1oto.kidtasker.databinding.FragmentSignupBinding
 import com.x1oto.kidtasker.presentation.status.Status
+import com.x1oto.kidtasker.presentation.viewmodel.SignInViewModel
 import com.x1oto.kidtasker.presentation.viewmodel.SignUpViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignUpFragment : Fragment() {
     private var _binding: FragmentSignupBinding? = null
     private val binding get() = _binding!!
 
-    private val firebaseDataSource = FirebaseDataSource()
-    private val signupRepository = AuthRepositoryImpl(firebaseDataSource)
-    private val viewModel: SignUpViewModel by viewModels { ViewModelFactory(signupRepository) }
+    private val viewModel by viewModel<SignUpViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

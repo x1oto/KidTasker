@@ -7,8 +7,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.x1oto.kidtasker.presentation.view.SignInFragment
 import com.x1oto.kidtasker.presentation.view.SignUpFragment
 
-class PagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, private val tabCount: Int)
-    : FragmentStateAdapter(fragmentManager, lifecycle) {
+class PagerAdapter(
+    fragmentManager: FragmentManager, lifecycle: Lifecycle, private val tabCount: Int
+): FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
         return tabCount

@@ -8,7 +8,9 @@ import com.x1oto.kidtasker.domain.AuthRepository
 import com.x1oto.kidtasker.presentation.status.Status
 import kotlinx.coroutines.launch
 
-class SignInViewModel(private val authRepository: AuthRepository) : ViewModel() {
+class SignInViewModel(
+    private val authRepository: AuthRepository
+): ViewModel() {
 
     private val _status = MutableLiveData<Status>()
     val status: LiveData<Status> = _status
