@@ -5,7 +5,7 @@ import com.x1oto.kidtasker.data.FirebaseDataSource
 import com.x1oto.kidtasker.data.TaskRepositoryImpl
 import com.x1oto.kidtasker.domain.AuthRepository
 import com.x1oto.kidtasker.domain.TaskRepository
-import com.x1oto.kidtasker.presentation.viewmodel.HomeViewModel
+import com.x1oto.kidtasker.presentation.viewmodel.DashboardViewModel
 import com.x1oto.kidtasker.presentation.viewmodel.SignInViewModel
 import com.x1oto.kidtasker.presentation.viewmodel.SignUpViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -34,7 +34,7 @@ val appModule = module {
     }
 
     viewModel {
-        HomeViewModel(get())
+        DashboardViewModel(get())
     }
 
 }

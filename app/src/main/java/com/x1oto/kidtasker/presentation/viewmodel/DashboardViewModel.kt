@@ -5,14 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.x1oto.kidtasker.data.model.User
-import com.x1oto.kidtasker.domain.AuthRepository
 import com.x1oto.kidtasker.domain.TaskRepository
 import com.x1oto.kidtasker.presentation.status.Status
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class HomeViewModel(
-    private val authRepository: TaskRepository
+class DashboardViewModel(
+    private val taskRepository: TaskRepository
 ): ViewModel() {
 
     private val _status = MutableLiveData<Status>()
@@ -25,7 +23,7 @@ class HomeViewModel(
         viewModelScope.launch {
             _status.value = Status.Loading
 
-            val user = authRepository.fetchDataFromFirebase()
+            val user = taskRepository.fetchDataFromFirebase()
 
             _status.value = if (user != null) {
                 _userData.value = user
@@ -38,7 +36,7 @@ class HomeViewModel(
 
     fun signOut() {
         viewModelScope.launch {
-            authRepository.signOut()
+            taskRepository.signOut()
         }
     }
 }
