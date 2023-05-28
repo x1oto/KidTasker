@@ -49,7 +49,7 @@ class SignInFragment : Fragment() {
                     requireActivity().finish()
                 }
                 is Status.Error -> {
-                    Toast.makeText(requireContext(), status.errorMessage, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), status.error, Toast.LENGTH_SHORT).show()
                 }
             }
         }

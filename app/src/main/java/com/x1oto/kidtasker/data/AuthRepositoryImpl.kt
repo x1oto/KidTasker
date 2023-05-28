@@ -6,9 +6,9 @@ import com.x1oto.kidtasker.domain.AuthRepository
 class AuthRepositoryImpl(
     private val firebaseDataSource: FirebaseDataSource
 ): AuthRepository {
-    override suspend fun signUp(name: String, email: String, password: String, role: String): Boolean {
+    override suspend fun signUp(name: String, email: String, password: String, parent: Boolean): Boolean {
         return firebaseDataSource.signUp(email, password)?.let {
-            firebaseDataSource.uploadDataToDatabase(name, email, role)
+            firebaseDataSource.uploadDataToDatabase(name, email, parent)
         } ?: false
     }
 

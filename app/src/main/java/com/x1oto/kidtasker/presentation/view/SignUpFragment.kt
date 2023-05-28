@@ -55,7 +55,7 @@ class SignUpFragment : Fragment() {
                 }
 
                 is Status.Error -> {
-                    Toast.makeText(requireContext(), status.errorMessage, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), status.error, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -67,7 +67,7 @@ class SignUpFragment : Fragment() {
             val name = nameEt.text.toString()
             val password = passwordEt.text.toString()
             val confirmPass = confirmPasswordEt.text.toString()
-            val accountCategory = if (modeSw.isChecked) "Parent" else "Children"
+            val accountCategory = modeSw.isChecked
 
             if (email.isBlank() || name.isBlank() || password.isBlank() || confirmPass.isBlank()) {
                 Toast.makeText(context, "Empty fields!", Toast.LENGTH_LONG).show()
@@ -99,8 +99,8 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun signUp(name: String, email: String, password: String, accountCategory: String) {
-        viewModel.signUp(name, email, password, accountCategory)
+    private fun signUp(name: String, email: String, password: String, isParent: Boolean) {
+        viewModel.signUp(name, email, password, isParent)
     }
 
 

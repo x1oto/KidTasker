@@ -15,11 +15,11 @@ class SignUpViewModel(
     private val _status = MutableLiveData<Status>()
     val status: LiveData<Status> = _status
 
-    fun signUp(name: String, email: String, password: String, accountCategory: String) {
+    fun signUp(name: String, email: String, password: String, parent: Boolean) {
         viewModelScope.launch {
             _status.value = Status.Loading
 
-            val success = authRepository.signUp(name, email, password, accountCategory)
+            val success = authRepository.signUp(name, email, password, parent)
 
             _status.value = if (success) {
                 Status.Success("Registered successfully")
